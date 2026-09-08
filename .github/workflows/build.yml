@@ -51,7 +51,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: Nebula v${{ github.run_number }}  # Change it when it is not in beta
+          tag_name: ${{ github.ref_name }}
           files: |
             bin/Release/net6.0/Nebula.dll
     
