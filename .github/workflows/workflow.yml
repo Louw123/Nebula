@@ -1,0 +1,41 @@
+name: Release Nuget
+
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  build-and-pack:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write 
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore NuGet Packages
+        run: dotnet restore
+
+      - name: Build and Package Nebula
+        # Appends "-dev.RUN_NUMBER" to the base version in your csproj file.
+        # e.g., 1.0.0 becomes 1.0.0-dev.5
+        run: |
+          dotnet pack --configuration Release /p:VersionSuffix="-v${{ github.run_number }}" --output ./nupkg
+
+      - name: Push to NuGet.org
+        # Handshake checks the short-lived ID token with Microsoft to authorize the push
+        run: dotnet nuget push "./nupkg/*.nupkg" --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+
+      - name: Upload Raw DLL File
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nebula-v1.0.0-dev.${{ github.run_number }}
+          path: bin/Release/net6.0/Nebula.dll
+      
