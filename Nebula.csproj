@@ -59,6 +59,8 @@
         <HintPath>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop\__Generated.dll</HintPath>
         <Private>False</Private>
       </Reference>
+    <PackageReference Include="BepInEx.Core" Version="6.0.0-*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-*" PrivateAssets="all" />
     </ItemGroup>
 
     <ItemGroup>
