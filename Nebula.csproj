@@ -8,7 +8,7 @@
         <RootNamespace>Nebula</RootNamespace>
         <local-interop>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop</local-interop>
         <local-libraries>..\..\Libraries\Game Libraries</local-libraries> 
-        <remote-libraries>$(MSBuildProjectDirectory)\lib</remote-interop>
+        <remote-libraries>$(MSBuildProjectDirectory)\lib</remote-libraries>
 
         
     </PropertyGroup>
