@@ -16,8 +16,7 @@
         <local-interop>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop</local-interop>
         <local-libraries>..\..\Libraries\Game Libraries</local-libraries> 
         <remote-libraries>$(MSBuildProjectDirectory)\lib</remote-libraries>
-
-        
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
