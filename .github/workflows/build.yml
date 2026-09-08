@@ -46,4 +46,12 @@ jobs:
         with:
           name: Nebula-${{ github.run_number }}
           path: bin/Release/net6.0/Nebula.dll
+
+      - name: Release
+        uses: softprops/action-gh-release@v3
+        if: github.ref_type == 'tag'
+        with:
+          files: |
+            bin/Release/net6.0/Nebula.dll
+    
       
