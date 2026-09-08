@@ -14,7 +14,7 @@
         <RepositoryUrl>https://github.com/CamOfFlage/Nebula</RepositoryUrl>
         <RestoreAdditionalProjectSources>
              https://api.nuget.org/v3/index.json; 
-             https://nuget.bepinex.dev/v3/index.json; <!-- For BepInEx -->
+             https://nuget.bepinex.dev/v3/index.json;
         </RestoreAdditionalProjectSources>
         <PrivateAssets>all</PrivateAssets>
 
