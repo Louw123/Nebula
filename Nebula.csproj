@@ -6,6 +6,17 @@
         <Nullable>enable</Nullable>
         <AssemblyName>Nebula</AssemblyName>
         <RootNamespace>Nebula</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>CamOfFlage.Nebula</PackageId>
+        <Authors>CamOfFlage</Authors>
+        <Description>A helpful library API for BepInEx modders.</Description>
+        <PackageTags>bepinex;modding;unity</PackageTags>
+        <RepositoryUrl>https://github.com/CamOfFlage/Nebula</RepositoryUrl>
+        <RestoreAdditionalProjectSources>
+             https://api.nuget.org/v3/index.json; 
+             https://nuget.bepinex.dev/v3/index.json; <!-- For BepInEx -->
+        </RestoreAdditionalProjectSources>
+
     </PropertyGroup>
 
     <ItemGroup>
@@ -59,6 +70,8 @@
         <HintPath>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop\__Generated.dll</HintPath>
         <Private>False</Private>
       </Reference>
+    <PackageReference Include="BepInEx.Core" Version="6.0.0-*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-*" PrivateAssets="all" />
     </ItemGroup>
 
     <ItemGroup>
