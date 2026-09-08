@@ -1,5 +1,5 @@
 # Nebula (A Worldless modding library)
-
+> Note: This is an Forked version of Nebula. No changes, except for nuget and package automation.
 ### Features:
 - Management for accessing the EVA system
 - Monitoring loading combat templates
@@ -10,8 +10,8 @@
 - Download BepInEx
 - Launch the game once
 - Go to the BepInEx folders, the required game libraries are in core and interop
-- Add a dependency to ``` Nebula.dll ``` (Found in the "Releases" section of the github page)
-- Add ``` [BepInDependency("com.CamOfFlage.Nebula")] ``` to your plugin's base class
+- Add the Nuget package to your project.
+- Add ``` [BepInDependency("Louw123.Nebula")] ``` to your plugin's base class
 - That's it!
 
 ### Examples
@@ -64,8 +64,8 @@ public class SeraphPatches : GlobalCombatTemplatePatch
 }
 ```
 ```C#
-[BepInPlugin("com.CamOfFlage.NebulaTest", "NebulaTest", "1.0.0")]  
-[BepInDependency("com.CamOfFlage.Nebula")]  
+[BepInPlugin("Louw123.NebulaTest", "NebulaTest", "1.0.0")]  
+[BepInDependency("Louw123.Nebula")]  
 public class Plugin : BasePlugin  
 {  
   public override void Load()  
