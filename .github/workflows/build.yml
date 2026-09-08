@@ -44,13 +44,14 @@ jobs:
       - name: Upload Raw DLL File
         uses: actions/upload-artifact@v4
         with:
-          tag_name: v${{ github.run_number }}
+          
           name: Nebula-${{ github.run_number }}
           path: bin/Release/net6.0/Nebula.dll
 
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
+          tag_name: beta  # Change it when it is not in beta
           files: |
             bin/Release/net6.0/Nebula.dll
     
