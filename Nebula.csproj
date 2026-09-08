@@ -45,6 +45,23 @@
          <HintPath Condition="!Exists('$(local-interop)')">$(remote-libraries)\__Generated.dll</HintPath>
         <Private>False</Private>
       </Reference>
+
+      <Reference Include="UnityEngine">
+         <HintPath Condition="Exists('$(local-interop)')">$(local-interop)\UnityEngine.dll</HintPath>
+         <HintPath Condition="!Exists('$(local-interop)')">$(remote-libraries)\UnityEngine.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+      <Reference Include="UnityEngine.AnimationModule">
+         <HintPath Condition="Exists('$(local-interop)')">$(local-interop)\UnityEngine.AnimationModule.dll</HintPath>
+         <HintPath Condition="!Exists('$(local-interop)')">$(remote-libraries)\UnityEngine.AnimationModule.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+      <Reference Include="UnityEngine.CoreModule">
+         <HintPath Condition="Exists('$(local-interop)')">$(local-interop)\UnityEngine.CoreModule.dll</HintPath>
+         <HintPath Condition="!Exists('$(local-interop)')">$(remote-libraries)\UnityEngine.CoreModule.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+
     </ItemGroup>
 
     <ItemGroup>
@@ -56,10 +73,6 @@
     
         <PackageReference Include="Lib.Harmony" Version="2.3.3" PrivateAssets="all" />
         <PackageReference Include="Il2CppInterop.Runtime" Version="1.5.3" PrivateAssets="all" />        
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="UnityEngine.Modules" Version="2022.3.12" PrivateAssets="all" />    
     </ItemGroup>
     
 </Project>
