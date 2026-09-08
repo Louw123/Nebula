@@ -13,10 +13,6 @@
         <Description>A specialized modding framework and interop library for Nebula.</Description>
         <PackageTags>modding;bepinex;il2cpp;worldless;library</PackageTags>
         <RepositoryUrl>https://github.com/Louw123/Nebula</RepositoryUrl>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        
-
-
         <local-interop>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop</local-interop>
         <local-libraries>..\..\Libraries\Game Libraries</local-libraries> 
         <remote-libraries>$(MSBuildProjectDirectory)\lib</remote-libraries>

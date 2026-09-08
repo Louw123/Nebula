@@ -5,7 +5,7 @@ namespace Nebula;
 
 public class BootChecker : MonoBehaviour
 {
-    public BootChecker(System.IntPtr intPtr) : base(intPtr) { }
+    public BootChecker(IntPtr intPtr) : base(intPtr) { }
     
     private void Update()
     {
