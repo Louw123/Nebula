@@ -1,9 +1,8 @@
-name: Release Nuget
+name: Build Nebula
 
 on:
-  push:
-    branches:
-      - 'master'
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,29 +24,16 @@ jobs:
       
       
       - name: Build and Package Nebula
-        # Appends "-dev.RUN_NUMBER" to the base version in your csproj file.
-        # e.g., 1.0.0 becomes 1.0.0-dev.5
         run: |
           dotnet pack -c Release /p:VersionSuffix="v${{ github.run_number }}" --output ./nupkg
       
-      - name: NuGet login (OIDC → temp API key)
-        uses: NuGet/login@v1
-        id: login
-        with:
-          user: Louq # Ensure this is your exact NuGet.org username profile name (not email)
-
-    
-      
-      - name: Push to NuGet.org
-        run: dotnet nuget push "./nupkg/*.nupkg" --source "https://api.nuget.org/v3/index.json" --skip-duplicate --api-key ${{steps.login.outputs.NUGET_API_KEY}}
-
       - name: Upload Raw DLL File
         uses: actions/upload-artifact@v4
         with:
-          
           name: Nebula-${{ github.run_number }}
           path: bin/Release/net6.0/Nebula.dll
 
+         # relases the DLL 
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
