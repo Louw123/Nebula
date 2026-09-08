@@ -16,9 +16,9 @@
              https://api.nuget.org/v3/index.json; 
              https://nuget.bepinex.dev/v3/index.json; <!-- For BepInEx -->
         </RestoreAdditionalProjectSources>
+        <PrivateAssets>all</PrivateAssets>
 
     </PropertyGroup>
-
     <ItemGroup>
       <Reference Include="0Harmony">
         <HintPath>..\..\Libraries\Bepinex\0Harmony.dll</HintPath>
