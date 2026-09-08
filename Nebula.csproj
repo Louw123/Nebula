@@ -6,59 +6,43 @@
         <Nullable>enable</Nullable>
         <AssemblyName>Nebula</AssemblyName>
         <RootNamespace>Nebula</RootNamespace>
+        <local-interop>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop</local-interop>
+        <local-libraries>..\..\Libraries\Game Libraries</local-libraries> 
+        <remote-libraries>$(MSBuildProjectDirectory)\lib</remote-interop>
+
+        
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="0Harmony">
-        <HintPath>..\..\Libraries\Bepinex\0Harmony.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
       <Reference Include="Assembly-CSharp">
-        <HintPath>..\..\Libraries\Game Libraries\Assembly-CSharp.dll</HintPath>
+         <HintPath Condition="Exists('$(local-libraries)')">$(local-libraries)\Assembly-CSharp.dll</HintPath>
+         <HintPath Condition="!Exists('$(local-libraries)')">$(remote-libraries)\Assembly-CSharp-firstpass.dll</HintPath>
         <Private>False</Private>
       </Reference>
       <Reference Include="Assembly-CSharp-firstpass">
-        <HintPath>..\..\Libraries\Game Libraries\Assembly-CSharp-firstpass.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="BepInEx.Core">
-        <HintPath>..\..\Libraries\Bepinex\BepInEx.Core.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="BepInEx.Unity.IL2CPP">
-        <HintPath>..\..\Libraries\Bepinex\BepInEx.Unity.IL2CPP.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="Il2CppInterop.Runtime">
-        <HintPath>..\..\Libraries\Bepinex\Il2CppInterop.Runtime.dll</HintPath>
+        <HintPath Condition="Exists('$(local-interop)')">$(local-interop)\Assembly-CSharp-firstpass.dll</HintPath>
+        <HintPath Condition="!Exists('$(local-interop)')">$(remote-libraries)\Assembly-CSharp-firstpass.dll</HintPath>
         <Private>False</Private>
       </Reference>
       <Reference Include="Il2Cppmscorlib">
-        <HintPath>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop\Il2Cppmscorlib.dll</HintPath>
-        <Private>False</Private>
+         <HintPath Condition="Exists('$(local-interop)')">$(local-interop)\Il2Cppmscorlib.dll</HintPath>
+         <HintPath Condition="!Exists('$(local-interop)')">$(remote-libraries)\Il2Cppmscorlib.dll</HintPath>
+         <Private>False</Private>
       </Reference>
       <Reference Include="Noname">
-        <HintPath>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop\Noname.dll</HintPath>
+         <HintPath Condition="Exists('$(local-interop)')">$(local-interop)\Noname.dll</HintPath>
+         <HintPath Condition="!Exists('$(local-interop)')">$(remote-libraries)\Noname.dll</HintPath>
         <Private>False</Private>
       </Reference>
       <Reference Include="Noname.Worldless.Combat">
-        <HintPath>..\..\Libraries\Game Libraries\Noname.Worldless.Combat.dll</HintPath>
+        <HintPath Condition="Exists('$(local-interop)')">$(local-interop)\Noname.Worldless.Combat.dll</HintPath>
+        <HintPath Condition="!Exists('$(local-interop)')">$(remote-libraries)\Noname.Worldless.Combat.dll</HintPath>
         <Private>False</Private>
       </Reference>
-      <Reference Include="UnityEngine">
-        <HintPath>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop\UnityEngine.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="UnityEngine.AnimationModule">
-        <HintPath>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop\UnityEngine.AnimationModule.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="UnityEngine.CoreModule">
-        <HintPath>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop\UnityEngine.CoreModule.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
+
       <Reference Include="__Generated">
-        <HintPath>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop\__Generated.dll</HintPath>
+         <HintPath Condition="Exists('$(local-interop)')">$(local-interop)\__Generated.dll</HintPath>
+         <HintPath Condition="!Exists('$(local-interop)')">$(remote-libraries)\__Generated.dll</HintPath>
         <Private>False</Private>
       </Reference>
     </ItemGroup>
@@ -69,6 +53,13 @@
     <ItemGroup>
         <PackageReference Include="BepInEx.Core" Version="6.0.0-*" PrivateAssets="all" />
         <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-*" PrivateAssets="all" />
-        <PackageReference Include="UnityEngine.Modules" Version="2022.3.12" PrivateAssets="all" />
+        <PackageReference Include="Lib.Harmony" Version="2022.3.12" PrivateAssets="all" />
+        <PackageReference Include="BepInEx.Unity.IL2CPP" Version="2022.3.12" PrivateAssets="all" />
+        <PackageReference Include="Il2CppInterop.Runtime" Version="2022.3.12" PrivateAssets="all" />        
     </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="UnityEngine.Modules" Version="2022.3.12" PrivateAssets="all" />    
+    </ItemGroup>
+    
 </Project>
