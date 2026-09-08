@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace Nebula;
 
-public class BootChecker : UnityEngine.MonoBehaviour
+public class BootChecker : MonoBehaviour
 {
     public BootChecker(System.IntPtr intPtr) : base(intPtr) { }
     
