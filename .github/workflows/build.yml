@@ -5,7 +5,7 @@ on:
     branches:
       - 'master'
 jobs:
-  build-and-pack:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -22,26 +22,28 @@ jobs:
 
       - name: Restore NuGet Packages
         run: dotnet restore
-
-           - name: NuGet login (OIDC → temp API key)
-        uses: NuGet/login@v1
-        id: login
-        with:
-          user: Louq
+      
       
       - name: Build and Package Nebula
         # Appends "-dev.RUN_NUMBER" to the base version in your csproj file.
         # e.g., 1.0.0 becomes 1.0.0-dev.5
         run: |
           dotnet pack --configuration Release /p:VersionSuffix="-v${{ github.run_number }}" --output ./nupkg
+      
+      - name: NuGet login (OIDC → temp API key)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: Louq # Ensure this is your exact NuGet.org username profile name (not email)
 
+    
+      
       - name: Push to NuGet.org
-        # Handshake checks the short-lived ID token with Microsoft to authorize the push
-        run: dotnet nuget push "./nupkg/*.nupkg" --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+        run: dotnet nuget push "./nupkg/*.nupkg" --source "https://api.nuget.org/v3/index.json" --skip-duplicate --api-key ${{steps.login.outputs.NUGET_API_KEY}}
 
       - name: Upload Raw DLL File
         uses: actions/upload-artifact@v4
         with:
-          name: Nebula-v1.0.0-dev.${{ github.run_number }}
+          name: Nebula-${{ github.run_number }}
           path: bin/Release/net6.0/Nebula.dll
       
