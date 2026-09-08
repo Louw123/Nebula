@@ -6,6 +6,17 @@
         <Nullable>enable</Nullable>
         <AssemblyName>Nebula</AssemblyName>
         <RootNamespace>Nebula</RootNamespace>
+        <Authors>Louw123</Authors>
+        <Company>Louw123</Company>
+        <PackageId>Louw123.Nebula</PackageId>
+        <VersionSuffix>v1.0.0</VersionSuffix>
+        <Description>A specialized modding framework and interop library for Nebula.</Description>
+        <PackageTags>modding;bepinex;il2cpp;worldless;library</PackageTags>
+        <RepositoryUrl>https://github.com/Louw123/Nebula</RepositoryUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        
+
+
         <local-interop>..\..\..\..\OneDrive\Desktop\Weird Steam Downloads\Modded Worldless\BepInEx\interop</local-interop>
         <local-libraries>..\..\Libraries\Game Libraries</local-libraries> 
         <remote-libraries>$(MSBuildProjectDirectory)\lib</remote-libraries>

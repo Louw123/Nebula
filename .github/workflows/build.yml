@@ -23,6 +23,12 @@ jobs:
       - name: Restore NuGet Packages
         run: dotnet restore
 
+           - name: NuGet login (OIDC → temp API key)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: Louq
+      
       - name: Build and Package Nebula
         # Appends "-dev.RUN_NUMBER" to the base version in your csproj file.
         # e.g., 1.0.0 becomes 1.0.0-dev.5
