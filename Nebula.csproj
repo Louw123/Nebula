@@ -61,6 +61,11 @@
       </Reference>
     <PackageReference Include="BepInEx.Core" Version="6.0.0-*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-*" PrivateAssets="all" />
+    <Reference Include="UnityEngine">
+      <HintPath>Libraries\Interop\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+   <PrivateAssets>all</PrivateAssets>
+</Reference>
     </ItemGroup>
 
     <ItemGroup>
