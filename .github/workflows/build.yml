@@ -28,7 +28,7 @@ jobs:
         # Appends "-dev.RUN_NUMBER" to the base version in your csproj file.
         # e.g., 1.0.0 becomes 1.0.0-dev.5
         run: |
-          dotnet pack -c Release /p:VersionSuffix="-v${{ github.run_number }}" --output ./nupkg
+          dotnet pack -c Release /p:VersionSuffix="v${{ github.run_number }}" --output ./nupkg
       
       - name: NuGet login (OIDC → temp API key)
         uses: NuGet/login@v1
