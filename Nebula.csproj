@@ -64,6 +64,7 @@
     <Reference Include="UnityEngine">
       <HintPath>Libraries\Interop\UnityEngine.dll</HintPath>
       <Private>False</Private>
+    </Reference>
    <PrivateAssets>all</PrivateAssets>
 </Reference>
     </ItemGroup>
